@@ -1,57 +1,39 @@
 @import "tailwindcss";
 
 @theme {
-    /* Definimos los colores del tema aquí para que Tailwind los reconozca */
     --color-evolve-dark: #222222;
     --color-evolve-nude: #E8D5C4;
-    --color-evolve-nude-light: #F5EBE0; /* Un tono más claro para fondos */
     --color-evolve-accent: #C5A065;
     --color-evolve-gray: #F9F9F9;
-
-    --font-family-sans: 'Montserrat', system-ui, sans-serif;
 }
 
-/* Configuración base */
-:root {
-    font-family: var(--font-family-sans);
-    line-height: 1.5;
-    font-weight: 400;
-    color-scheme: light; /* Forzamos modo claro para evitar conflictos de negro sobre negro */
-    background-color: var(--color-evolve-gray);
-    color: var(--color-evolve-dark);
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: white;
+    color: #222222;
+    font-family: 'Montserrat', sans-serif;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden; /* Evita scroll lateral indeseado */
-}
-
-/* Estilos personalizados para animaciones */
-.fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
+/* Animaciones */
 @keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Efecto Hover Premium para tarjetas */
-.service-card {
-    transition: all 0.3s ease;
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
 }
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-    border-color: var(--color-evolve-accent);
+
+@keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+.animate-slow-zoom {
+    animation: slowZoom 20s infinite alternate;
 }

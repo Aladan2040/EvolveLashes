@@ -7,10 +7,10 @@ export default {
     theme: {
         extend: {
             colors: {
-                'evolve-dark': '#222222',   // Gris casi negro del logo
-                'evolve-nude': '#E8D5C4',   // Color piel suave para fondos/detalles
-                'evolve-accent': '#C5A065', // Dorado mate para botones/acciones
-                'evolve-gray': '#F9F9F9',   // Blanco humo para secciones alternas
+                'evolve-dark': '#222222',
+                'evolve-nude': '#E8D5C4',
+                'evolve-accent': '#C5A065',
+                'evolve-gray': '#F9F9F9',
             },
             fontFamily: {
                 'sans': ['Montserrat', 'system-ui', 'sans-serif'],
