@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImg from '../assets/logo-evolve.svg';
+import logoImg from '../../../EvolveLashes/src/assets/logo-evolve.svg';
 
 export default function Footer() {
     return (

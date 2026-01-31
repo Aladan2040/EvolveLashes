@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/* Configuración de colores personalizados para Tailwind v4 */
+@theme {
+    --color-evolve-dark: #222222;
+    --color-evolve-nude: #E8D5C4;
+    --color-evolve-accent: #C5A065;
+    --color-evolve-gray: #F9F9F9;
+}
+
+/* Estilos base */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

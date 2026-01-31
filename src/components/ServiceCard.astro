@@ -1,0 +1,37 @@
+---
+// src/components/ServiceCard.astro
+const { title, description, tag, isPremium, href } = Astro.props;
+---
+
+<a
+    href={href}
+    class:list={[
+        "relative p-5 md:p-8 rounded-2xl md:rounded-[2rem] border transition-all duration-300 hover:shadow-xl cursor-pointer hover:-translate-y-1 md:hover:-translate-y-2 flex flex-col h-full bg-white group text-left",
+        isPremium ? "border-evolve-accent/50 shadow-lg ring-2 ring-evolve-accent/20" : "border-gray-100 shadow-sm hover:border-gray-200"
+    ]}
+>
+    {tag && (
+        <div class="absolute top-4 right-4 md:top-6 md:right-6 bg-evolve-dark text-white text-[9px] md:text-[10px] font-bold px-2.5 md:px-3 py-1 rounded-full uppercase tracking-wider">
+            {tag}
+        </div>
+    )}
+    {isPremium && (
+        <div class="absolute top-4 right-4 md:top-6 md:right-6 bg-gradient-to-r from-evolve-accent to-yellow-500 text-white text-[9px] md:text-[10px] font-bold px-2.5 md:px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1">
+            <span>⭐</span> Premium
+        </div>
+    )}
+    <h3 class="text-lg md:text-2xl font-bold text-evolve-dark mb-2 md:mb-4 group-hover:text-evolve-accent transition-colors pr-16 md:pr-20">
+        {title}
+    </h3>
+    <p class="text-gray-600 leading-relaxed mb-4 md:mb-6 font-light text-sm md:text-base flex-grow">
+        {description}
+    </p>
+    <div class="mt-auto flex items-center justify-between">
+        <span class="text-evolve-accent font-semibold text-xs md:text-sm group-hover:underline flex items-center gap-1">
+            Ver detalle
+            <svg class="w-3 h-3 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+        </span>
+    </div>
+</a>
