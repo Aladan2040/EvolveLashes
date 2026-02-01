@@ -6,7 +6,7 @@ export default function Services() {
     // Función interna para WhatsApp
     const handleWhatsApp = (msg) => {
         const message = msg || "Hola, me interesa cotizar varios servicios.";
-        window.open(`https://wa.me/51999999999?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/56975598631?text=${encodeURIComponent(message)}`, '_blank');
     };
 
     return (

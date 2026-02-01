@@ -31,7 +31,7 @@ export default function ServiceDetail() {
 
     // 2. Función para WhatsApp interna
     const handleWhatsApp = (msg) => {
-        window.open(`https://wa.me/51999999999?text=${encodeURIComponent(msg)}`, '_blank');
+        window.open(`https://wa.me/56975598631?text=${encodeURIComponent(msg)}`, '_blank');
     };
 
     // 3. Efecto para leer la URL al cargar (ej: ?id=volumen)

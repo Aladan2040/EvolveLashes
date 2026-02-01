@@ -9,7 +9,7 @@ export default function Home() {
     // Función interna para WhatsApp
     const handleWhatsApp = (msg) => {
         const message = msg || "Hola, quisiera reservar una cita a domicilio.";
-        window.open(`https://wa.me/51999999999?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/56975598631?text=${encodeURIComponent(message)}`, '_blank');
     };
 
     return (
