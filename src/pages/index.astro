@@ -20,7 +20,7 @@ import specialistImg from '../assets/service1.jpg';
         <section class="py-12 md:py-16 bg-white border-b border-gray-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-                    <div class="text-center p-4">
+                    <div class="text-center p-4 animate-fade-in-up stagger-1">
                         <div class="w-14 h-14 md:w-16 md:h-16 bg-evolve-nude/30 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
                             <svg class="w-7 h-7 md:w-8 md:h-8 text-evolve-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
@@ -29,7 +29,7 @@ import specialistImg from '../assets/service1.jpg';
                         <h4 class="font-bold text-evolve-dark text-sm md:text-base">Servicio a Domicilio</h4>
                         <p class="text-gray-500 text-xs md:text-sm mt-1">Sin salir de casa</p>
                     </div>
-                    <div class="text-center p-4">
+                    <div class="text-center p-4 animate-fade-in-up stagger-2">
                         <div class="w-14 h-14 md:w-16 md:h-16 bg-evolve-nude/30 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
                             <svg class="w-7 h-7 md:w-8 md:h-8 text-evolve-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
@@ -38,7 +38,7 @@ import specialistImg from '../assets/service1.jpg';
                         <h4 class="font-bold text-evolve-dark text-sm md:text-base">Higiene Garantizada</h4>
                         <p class="text-gray-500 text-xs md:text-sm mt-1">Protocolo sanitario</p>
                     </div>
-                    <div class="text-center p-4">
+                    <div class="text-center p-4 animate-fade-in-up stagger-3">
                         <div class="w-14 h-14 md:w-16 md:h-16 bg-evolve-nude/30 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
                             <svg class="w-7 h-7 md:w-8 md:h-8 text-evolve-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -47,7 +47,7 @@ import specialistImg from '../assets/service1.jpg';
                         <h4 class="font-bold text-evolve-dark text-sm md:text-base">Horarios Flexibles</h4>
                         <p class="text-gray-500 text-xs md:text-sm mt-1">Nos adaptamos a ti</p>
                     </div>
-                    <div class="text-center p-4">
+                    <div class="text-center p-4 animate-fade-in-up stagger-4">
                         <div class="w-14 h-14 md:w-16 md:h-16 bg-evolve-nude/30 rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
                             <svg class="w-7 h-7 md:w-8 md:h-8 text-evolve-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
@@ -67,30 +67,36 @@ import specialistImg from '../assets/service1.jpg';
             </div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-                <div class="text-center mb-10 md:mb-16">
+                <div class="text-center mb-10 md:mb-16 animate-fade-in-up">
                     <span class="text-evolve-accent font-bold tracking-widest uppercase text-[10px] md:text-xs">Transforma tu mirada</span>
                     <h2 class="text-2xl md:text-4xl font-bold text-evolve-dark mt-2 mb-3 md:mb-4">Los Más Solicitados</h2>
                     <div class="w-16 md:w-20 h-1 bg-evolve-accent mx-auto rounded-full"></div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
-                    <ServiceCard
-                        title="Lifting de Pestañas"
-                        description="La opción perfecta si amas lo natural. Elevamos tus pestañas desde la raíz creando una curvatura elegante que dura hasta 8 semanas."
-                        tag="Más Vendido"
-                        href="/service/lifting"
-                    />
-                    <ServiceCard
-                        title="Volumen Ruso"
-                        isPremium={true}
-                        description="Para quienes buscan impacto total. Abanicos artesanales de 2D a 6D para una densidad espectacular y dramática."
-                        href="/service/volumen"
-                    />
-                    <ServiceCard
-                        title="Efecto Rímel (Wet Look)"
-                        description="La tendencia del momento. Logra ese look de 'pestañas mojadas' definidas y modernas que marcan tendencia."
-                        href="/service/rimel"
-                    />
+                    <div class="animate-fade-in-up stagger-1">
+                        <ServiceCard
+                            title="Lifting de Pestañas"
+                            description="La opción perfecta si amas lo natural. Elevamos tus pestañas desde la raíz creando una curvatura elegante que dura hasta 8 semanas."
+                            tag="Más Vendido"
+                            href="/service/lifting"
+                        />
+                    </div>
+                    <div class="animate-fade-in-up stagger-2">
+                        <ServiceCard
+                            title="Volumen Ruso"
+                            isPremium={true}
+                            description="Para quienes buscan impacto total. Abanicos artesanales de 2D a 6D para una densidad espectacular y dramática."
+                            href="/service/volumen"
+                        />
+                    </div>
+                    <div class="animate-fade-in-up stagger-3">
+                        <ServiceCard
+                            title="Efecto Rímel (Wet Look)"
+                            description="La tendencia del momento. Logra ese look de 'pestañas mojadas' definidas y modernas que marcan tendencia."
+                            href="/service/rimel"
+                        />
+                    </div>
                 </div>
 
                 <div class="text-center mt-10 md:mt-14">
@@ -108,7 +114,7 @@ import specialistImg from '../assets/service1.jpg';
         <section class="py-16 md:py-24 bg-gray-50">
             <div class="max-w-6xl mx-auto px-4 sm:px-6">
                 <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-                    <div class="w-full lg:w-1/2 relative group">
+                    <div class="w-full lg:w-1/2 relative group animate-slide-in-left">
                         <div class="absolute inset-0 bg-evolve-accent rounded-2xl md:rounded-[3rem] rotate-2 md:rotate-3 opacity-20 transition-transform group-hover:rotate-4 md:group-hover:rotate-6"></div>
                         <img
                             src={specialistImg.src}
@@ -121,7 +127,7 @@ import specialistImg from '../assets/service1.jpg';
                         </div>
                     </div>
 
-                    <div class="w-full lg:w-1/2">
+                    <div class="w-full lg:w-1/2 animate-slide-in-right">
                         <span class="text-evolve-accent font-bold uppercase tracking-widest text-[10px] md:text-xs">Tu Lash Artist de Confianza</span>
                         <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold text-evolve-dark mt-2 mb-4 md:mb-6 leading-tight">
                             Pasión por el arte de la
@@ -136,15 +142,15 @@ import specialistImg from '../assets/service1.jpg';
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mb-6 md:mb-8">
-                            <div class="bg-white p-3 md:p-4 rounded-xl border border-gray-100 text-center">
+                            <div class="bg-white p-3 md:p-4 rounded-xl border border-gray-100 text-center animate-scale-in stagger-1">
                                 <span class="text-xl md:text-2xl">🧴</span>
                                 <p class="text-xs md:text-sm font-semibold text-evolve-dark mt-1">Higiene Clínica</p>
                             </div>
-                            <div class="bg-white p-3 md:p-4 rounded-xl border border-gray-100 text-center">
+                            <div class="bg-white p-3 md:p-4 rounded-xl border border-gray-100 text-center animate-scale-in stagger-2">
                                 <span class="text-xl md:text-2xl">💎</span>
                                 <p class="text-xs md:text-sm font-semibold text-evolve-dark mt-1">Productos Premium</p>
                             </div>
-                            <div class="bg-white p-3 md:p-4 rounded-xl border border-gray-100 text-center">
+                            <div class="bg-white p-3 md:p-4 rounded-xl border border-gray-100 text-center animate-scale-in stagger-3">
                                 <span class="text-xl md:text-2xl">🎓</span>
                                 <p class="text-xs md:text-sm font-semibold text-evolve-dark mt-1">Certificación Pro</p>
                             </div>
@@ -164,14 +170,14 @@ import specialistImg from '../assets/service1.jpg';
         <!-- Proceso de Trabajo -->
         <section class="py-16 md:py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-10 md:mb-16">
+                <div class="text-center mb-10 md:mb-16 animate-fade-in-up">
                     <span class="text-evolve-accent font-bold tracking-widest uppercase text-[10px] md:text-xs">Cómo Trabajamos</span>
                     <h2 class="text-2xl md:text-4xl font-bold text-evolve-dark mt-2 mb-3 md:mb-4">Tu Experiencia VIP en 4 Pasos</h2>
                     <div class="w-16 md:w-20 h-1 bg-evolve-accent mx-auto rounded-full"></div>
                 </div>
 
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-                    <div class="text-center p-4 md:p-6 group">
+                    <div class="text-center p-4 md:p-6 group animate-fade-in-up stagger-1">
                         <div class="relative mb-4 md:mb-6">
                             <div class="w-16 h-16 md:w-20 md:h-20 bg-evolve-dark text-white rounded-full flex items-center justify-center mx-auto text-xl md:text-2xl font-bold group-hover:bg-evolve-accent transition-colors duration-300">1</div>
                             <div class="hidden lg:block absolute top-1/2 left-full w-full h-0.5 bg-gray-200 -translate-y-1/2"></div>
@@ -179,7 +185,7 @@ import specialistImg from '../assets/service1.jpg';
                         <h4 class="font-bold text-evolve-dark text-sm md:text-lg mb-1 md:mb-2">Reserva tu Cita</h4>
                         <p class="text-gray-500 text-xs md:text-sm">Escríbenos por WhatsApp y elige fecha y hora</p>
                     </div>
-                    <div class="text-center p-4 md:p-6 group">
+                    <div class="text-center p-4 md:p-6 group animate-fade-in-up stagger-2">
                         <div class="relative mb-4 md:mb-6">
                             <div class="w-16 h-16 md:w-20 md:h-20 bg-evolve-dark text-white rounded-full flex items-center justify-center mx-auto text-xl md:text-2xl font-bold group-hover:bg-evolve-accent transition-colors duration-300">2</div>
                             <div class="hidden lg:block absolute top-1/2 left-full w-full h-0.5 bg-gray-200 -translate-y-1/2"></div>
@@ -187,7 +193,7 @@ import specialistImg from '../assets/service1.jpg';
                         <h4 class="font-bold text-evolve-dark text-sm md:text-lg mb-1 md:mb-2">Asesoría Virtual</h4>
                         <p class="text-gray-500 text-xs md:text-sm">Analizamos tu tipo de ojo y diseño ideal</p>
                     </div>
-                    <div class="text-center p-4 md:p-6 group">
+                    <div class="text-center p-4 md:p-6 group animate-fade-in-up stagger-3">
                         <div class="relative mb-4 md:mb-6">
                             <div class="w-16 h-16 md:w-20 md:h-20 bg-evolve-dark text-white rounded-full flex items-center justify-center mx-auto text-xl md:text-2xl font-bold group-hover:bg-evolve-accent transition-colors duration-300">3</div>
                             <div class="hidden lg:block absolute top-1/2 left-full w-full h-0.5 bg-gray-200 -translate-y-1/2"></div>
@@ -195,7 +201,7 @@ import specialistImg from '../assets/service1.jpg';
                         <h4 class="font-bold text-evolve-dark text-sm md:text-lg mb-1 md:mb-2">Vamos a Ti</h4>
                         <p class="text-gray-500 text-xs md:text-sm">Llegamos a tu domicilio con todo el equipo</p>
                     </div>
-                    <div class="text-center p-4 md:p-6 group">
+                    <div class="text-center p-4 md:p-6 group animate-fade-in-up stagger-4">
                         <div class="relative mb-4 md:mb-6">
                             <div class="w-16 h-16 md:w-20 md:h-20 bg-evolve-accent text-white rounded-full flex items-center justify-center mx-auto text-xl md:text-2xl font-bold">✓</div>
                         </div>
@@ -209,14 +215,14 @@ import specialistImg from '../assets/service1.jpg';
         <!-- Testimonios -->
         <section class="py-16 md:py-24 bg-gray-50 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-10 md:mb-16">
+                <div class="text-center mb-10 md:mb-16 animate-fade-in-up">
                     <span class="text-evolve-accent font-bold tracking-widest uppercase text-[10px] md:text-xs">Lo que dicen de nosotros</span>
                     <h2 class="text-2xl md:text-4xl font-bold text-evolve-dark mt-2 mb-3 md:mb-4">+500 Clientas Satisfechas</h2>
                     <div class="w-16 md:w-20 h-1 bg-evolve-accent mx-auto rounded-full"></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
-                    <div class="bg-white p-5 md:p-8 rounded-2xl border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-white p-5 md:p-8 rounded-2xl border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in-up stagger-1">
                         <div class="flex gap-0.5 text-yellow-400 mb-3 md:mb-4 text-base md:text-lg">★★★★★</div>
                         <p class="text-gray-600 mb-4 md:mb-6 italic leading-relaxed text-sm md:text-base">"¡Increíble experiencia! Tenía miedo de hacérmelas a domicilio por la higiene, pero trajo todo impecable y sellado. Mis pestañas duraron más de 3 semanas perfectas."</p>
                         <div class="flex items-center gap-3 md:gap-4">
@@ -227,7 +233,7 @@ import specialistImg from '../assets/service1.jpg';
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white p-5 md:p-8 rounded-2xl border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-white p-5 md:p-8 rounded-2xl border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in-up stagger-2">
                         <div class="flex gap-0.5 text-yellow-400 mb-3 md:mb-4 text-base md:text-lg">★★★★★</div>
                         <p class="text-gray-600 mb-4 md:mb-6 italic leading-relaxed text-sm md:text-base">"Me ahorra muchísimo tiempo cada mañana. El diseño de cejas cambió mi cara por completo. Es súper puntual y profesional. ¡100% recomendada!"</p>
                         <div class="flex items-center gap-3 md:gap-4">
@@ -238,7 +244,7 @@ import specialistImg from '../assets/service1.jpg';
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white p-5 md:p-8 rounded-2xl border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <div class="bg-white p-5 md:p-8 rounded-2xl border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 animate-fade-in-up stagger-3">
                         <div class="flex gap-0.5 text-yellow-400 mb-3 md:mb-4 text-base md:text-lg">★★★★★</div>
                         <p class="text-gray-600 mb-4 md:mb-6 italic leading-relaxed text-sm md:text-base">"Buscaba algo natural para mi boda y acertó totalmente. No sentí ninguna molestia ni ardor, tiene una mano súper delicada. Quedé hermosa en las fotos."</p>
                         <div class="flex items-center gap-3 md:gap-4">
@@ -261,56 +267,56 @@ import specialistImg from '../assets/service1.jpg';
             </div>
 
             <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
-                <span class="text-3xl md:text-5xl mb-4 md:mb-6 block">🚗✨</span>
-                <h2 class="text-2xl md:text-4xl font-bold mb-4 md:mb-6">¿Lista para vivir la experiencia VIP?</h2>
-                <p class="text-gray-300 mb-6 md:mb-8 text-sm md:text-lg max-w-2xl mx-auto leading-relaxed">
+                <span class="text-3xl md:text-5xl mb-4 md:mb-6 block animate-fade-in">🚗✨</span>
+                <h2 class="text-2xl md:text-4xl font-bold mb-4 md:mb-6 animate-fade-in-up">¿Lista para vivir la experiencia VIP?</h2>
+                <p class="text-gray-300 mb-6 md:mb-8 text-sm md:text-lg max-w-2xl mx-auto leading-relaxed animate-fade-in-up stagger-1">
                     Cubrimos <strong class="text-white">Miraflores, San Isidro, Surco, La Molina, San Borja, Barranco</strong> y más distritos de Lima. Escríbenos para consultar disponibilidad.
                 </p>
                 <button
                     onclick="window.open('https://wa.me/56975598631?text=Hola,%20quiero%20agendar%20una%20cita%20a%20domicilio%20en%20Lima.', '_blank')"
-                    class="group bg-green-500 text-white px-8 md:px-10 py-3.5 md:py-4 rounded-full font-bold hover:bg-green-600 transition-all duration-300 shadow-lg hover:shadow-2xl cursor-pointer inline-flex items-center gap-2 md:gap-3 text-sm md:text-base"
+                    class="group bg-green-500 text-white px-8 md:px-10 py-3.5 md:py-4 rounded-full font-bold hover:bg-green-600 transition-all duration-300 shadow-lg hover:shadow-2xl cursor-pointer inline-flex items-center gap-2 md:gap-3 text-sm md:text-base animate-scale-in"
                 >
                     <svg class="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                     </svg>
                     Agendar Cita por WhatsApp
                 </button>
-                <p class="text-gray-400 text-xs md:text-sm mt-4 md:mt-6">Respuesta en menos de 2 horas • Lunes a Sábado</p>
+                <p class="text-gray-400 text-xs md:text-sm mt-4 md:mt-6 animate-fade-in stagger-2">Respuesta en menos de 2 horas • Lunes a Sábado</p>
             </div>
         </section>
 
         <!-- FAQ Rápido -->
         <section class="py-16 md:py-24 bg-white">
             <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-10 md:mb-16">
+                <div class="text-center mb-10 md:mb-16 animate-fade-in-up">
                     <span class="text-evolve-accent font-bold tracking-widest uppercase text-[10px] md:text-xs">Preguntas Frecuentes</span>
                     <h2 class="text-2xl md:text-4xl font-bold text-evolve-dark mt-2 mb-3 md:mb-4">¿Tienes Dudas?</h2>
                     <div class="w-16 md:w-20 h-1 bg-evolve-accent mx-auto rounded-full"></div>
                 </div>
 
                 <div class="space-y-4">
-                    <details class="bg-gray-50 rounded-2xl p-4 md:p-6 group cursor-pointer">
+                    <details class="bg-gray-50 rounded-2xl p-4 md:p-6 group cursor-pointer animate-fade-in-up stagger-1">
                         <summary class="font-bold text-evolve-dark flex justify-between items-center text-sm md:text-base">
                             ¿Cuánto duran las extensiones de pestañas?
                             <span class="text-evolve-accent group-open:rotate-45 transition-transform text-xl">+</span>
                         </summary>
                         <p class="text-gray-600 mt-3 md:mt-4 text-sm md:text-base leading-relaxed">Las extensiones duran el ciclo natural de tus pestañas, aproximadamente 3-4 semanas. Recomendamos retoques cada 2-3 semanas para mantenerlas perfectas.</p>
                     </details>
-                    <details class="bg-gray-50 rounded-2xl p-4 md:p-6 group cursor-pointer">
+                    <details class="bg-gray-50 rounded-2xl p-4 md:p-6 group cursor-pointer animate-fade-in-up stagger-2">
                         <summary class="font-bold text-evolve-dark flex justify-between items-center text-sm md:text-base">
                             ¿Es seguro el servicio a domicilio?
                             <span class="text-evolve-accent group-open:rotate-45 transition-transform text-xl">+</span>
                         </summary>
                         <p class="text-gray-600 mt-3 md:mt-4 text-sm md:text-base leading-relaxed">¡Absolutamente! Trabajo con materiales desechables, desinfección profesional y pegamentos hipoalergénicos. Todo el equipo llega sellado y esterilizado.</p>
                     </details>
-                    <details class="bg-gray-50 rounded-2xl p-4 md:p-6 group cursor-pointer">
+                    <details class="bg-gray-50 rounded-2xl p-4 md:p-6 group cursor-pointer animate-fade-in-up stagger-3">
                         <summary class="font-bold text-evolve-dark flex justify-between items-center text-sm md:text-base">
                             ¿Qué distritos cubren en Lima?
                             <span class="text-evolve-accent group-open:rotate-45 transition-transform text-xl">+</span>
                         </summary>
                         <p class="text-gray-600 mt-3 md:mt-4 text-sm md:text-base leading-relaxed">Cubrimos Miraflores, San Isidro, Surco, La Molina, San Borja, Barranco, Jesús María, Magdalena, Pueblo Libre y más. Consulta por otros distritos.</p>
                     </details>
-                    <details class="bg-gray-50 rounded-2xl p-4 md:p-6 group cursor-pointer">
+                    <details class="bg-gray-50 rounded-2xl p-4 md:p-6 group cursor-pointer animate-fade-in-up stagger-4">
                         <summary class="font-bold text-evolve-dark flex justify-between items-center text-sm md:text-base">
                             ¿Cuánto tiempo dura la aplicación?
                             <span class="text-evolve-accent group-open:rotate-45 transition-transform text-xl">+</span>
