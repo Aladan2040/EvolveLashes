@@ -1,18 +1,51 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Detalle del Servicio | EvolveLashes">
     <Navbar />
-    <main class="pt-32 pb-20 bg-white min-h-screen">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h1 class="text-4xl font-bold text-evolve-dark mb-6">Detalle del Servicio</h1>
-            <p class="text-gray-600 mb-8">Para ver el detalle de un servicio, visita nuestra carta de servicios.</p>
-            <a href="/services" class="inline-block bg-evolve-accent text-white px-8 py-4 rounded-full font-bold hover:bg-evolve-dark transition">
-                Ver Servicios
-            </a>
+    <main class="pb-20 bg-white min-h-screen relative overflow-hidden">
+        <!-- Decorative blob -->
+        <div
+            class="absolute top-20 right-0 w-64 h-64 bg-evolve-nude/10 rounded-full blur-[80px] -mr-32 pointer-events-none"
+        >
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center pt-8 md:pt-12">
+            <div class="animate-fade-in-up">
+                <span class="inline-block text-4xl md:text-5xl mb-4">👁️‍🗨️</span>
+                <h1
+                    class="text-3xl md:text-5xl font-bold text-evolve-dark mb-4 md:mb-6 font-serif-display"
+                >
+                    Detalle del Servicio
+                </h1>
+                <p
+                    class="text-gray-400 mb-8 md:mb-10 text-sm md:text-lg max-w-lg mx-auto leading-relaxed"
+                >
+                    Para ver el detalle de un servicio, visita nuestra carta de
+                    servicios completa.
+                </p>
+                <a
+                    href="/services"
+                    class="inline-flex items-center gap-2 bg-evolve-accent text-white px-8 py-4 rounded-full font-bold hover:bg-evolve-dark transition-all duration-500 hover:scale-105 active:scale-95 shadow-lg shimmer-hover"
+                >
+                    <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5l7 7-7 7"></path>
+                    </svg>
+                    Ver Servicios
+                </a>
+            </div>
         </div>
     </main>
     <Footer />

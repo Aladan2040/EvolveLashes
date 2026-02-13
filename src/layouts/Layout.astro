@@ -1,7 +1,8 @@
 ---
 // Layout.astro
-import '../styles/global.css';
-import WhatsAppButton from '../components/WhatsAppButton.astro';
+import "../styles/global.css";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
     title: string;
@@ -12,36 +13,313 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="EvolveLashes - Extensiones de pestañas a domicilio en Lima. Servicio profesional de extensiones, lifting y diseño de cejas." />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#C5A065" />
-    <title>{title}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body class="font-sans antialiased text-gray-900 bg-white">
-<slot />
-<WhatsAppButton />
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="description"
+            content="EvolveLashes - Extensiones de pestañas a domicilio en Lima. Servicio profesional de extensiones, lifting y diseño de cejas."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="theme-color" content="#C5A065" />
 
-<script>
-    import { initScrollAnimations } from '../scripts/scrollAnimations';
-    // Inicializar animaciones cuando la página carga
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-            initScrollAnimations();
-        });
-    } else {
-        initScrollAnimations();
-    }
-    // También reinicializar después de navegaciones en Astro
-    document.addEventListener('astro:after-swap', () => {
-        initScrollAnimations();
-    });
-</script>
-</body>
+        <!-- Open Graph -->
+        <meta property="og:title" content={title} />
+        <meta
+            property="og:description"
+            content="Extensiones de pestañas profesionales a domicilio en Lima. Tu mirada, nuestra pasión."
+        />
+        <meta property="og:type" content="website" />
+
+        <title>{title}</title>
+
+        <!-- Fonts: Montserrat (body) + Playfair Display (headings) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Astro View Transitions for fluid page navigation -->
+        <ViewTransitions />
+    </head>
+    <body class="font-sans antialiased text-gray-900 bg-white">
+        <!-- ★ Premium Page Loader ★ -->
+        <div
+            id="page-loader"
+            class="fixed inset-0 z-[9999] bg-[#111111] flex flex-col items-center justify-center transition-opacity duration-700"
+        >
+            <div class="loader-logo mb-6">
+                <span
+                    class="text-3xl md:text-4xl font-serif-display font-bold text-white tracking-tight"
+                    >EVOLVE</span
+                >
+                <span
+                    class="block text-lg md:text-xl font-light tracking-[0.3em] text-evolve-accent mt-1"
+                    >LASH</span
+                >
+            </div>
+            <div
+                class="loader-bar w-48 h-0.5 bg-white/10 rounded-full overflow-hidden"
+            >
+                <div
+                    class="loader-fill h-full bg-gradient-to-r from-evolve-accent via-evolve-nude to-evolve-accent rounded-full"
+                    style="animation: loaderFill 1.2s ease-in-out forwards;"
+                >
+                </div>
+            </div>
+        </div>
+
+        <!-- ★ Scroll Progress Bar ★ -->
+        <div
+            id="scroll-progress"
+            class="fixed top-0 left-0 h-[3px] z-[100] bg-gradient-to-r from-evolve-accent via-evolve-nude to-evolve-accent shadow-[0_0_10px_rgba(197,160,101,0.5)] transition-[width] duration-100 ease-out"
+            style="width: 0%;"
+        >
+        </div>
+
+        <!-- ★ Custom Cursor (desktop only) ★ -->
+        <div
+            id="cursor-dot"
+            class="fixed w-2 h-2 bg-evolve-accent rounded-full pointer-events-none z-[9998] mix-blend-difference opacity-0 transition-opacity duration-300 hidden md:block"
+            style="transform: translate(-50%, -50%);"
+        >
+        </div>
+        <div
+            id="cursor-ring"
+            class="fixed w-10 h-10 border-2 border-evolve-accent/40 rounded-full pointer-events-none z-[9997] opacity-0 hidden md:block"
+            style="transform: translate(-50%, -50%); transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, opacity 0.3s ease;"
+        >
+        </div>
+
+        <slot />
+        <WhatsAppButton />
+
+        <!-- ★ Back to Top Button ★ -->
+        <button
+            id="back-to-top"
+            class="fixed bottom-6 left-6 z-50 w-12 h-12 bg-evolve-dark/80 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 translate-y-10 invisible transition-all duration-500 cursor-pointer hover:bg-evolve-accent hover:scale-110 hover:shadow-[0_0_20px_rgba(197,160,101,0.3)] active:scale-95 border border-white/10"
+            aria-label="Volver arriba"
+        >
+            <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 15l7-7 7 7"></path>
+            </svg>
+        </button>
+
+        <style>
+            @keyframes loaderFill {
+                0% {
+                    width: 0%;
+                }
+                60% {
+                    width: 80%;
+                }
+                100% {
+                    width: 100%;
+                }
+            }
+
+            .loader-logo {
+                animation: loaderPulse 1.2s ease-in-out;
+            }
+
+            @keyframes loaderPulse {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.9);
+                }
+                50% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+                100% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            /* Hide default cursor on desktop when custom cursor is active */
+            @media (min-width: 768px) {
+                body.cursor-active {
+                    cursor: none;
+                }
+                body.cursor-active a,
+                body.cursor-active button,
+                body.cursor-active [role="button"],
+                body.cursor-active input,
+                body.cursor-active textarea,
+                body.cursor-active select {
+                    cursor: none;
+                }
+            }
+        </style>
+
+        <script>
+            import { initScrollAnimations } from "../scripts/scrollAnimations";
+
+            // ── Page Loader ──────────────────────────────
+            function hideLoader() {
+                const loader = document.getElementById("page-loader");
+                if (loader) {
+                    setTimeout(() => {
+                        loader.style.opacity = "0";
+                        setTimeout(() => {
+                            loader.style.display = "none";
+                        }, 700);
+                    }, 1200);
+                }
+            }
+
+            // ── Scroll Progress Bar ─────────────────────
+            function updateScrollProgress() {
+                const bar = document.getElementById("scroll-progress");
+                if (!bar) return;
+                const scrollTop = window.scrollY;
+                const docHeight =
+                    document.documentElement.scrollHeight - window.innerHeight;
+                const progress =
+                    docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                bar.style.width = progress + "%";
+            }
+
+            // ── Back to Top ─────────────────────────────
+            function handleBackToTop() {
+                const btn = document.getElementById("back-to-top");
+                if (!btn) return;
+
+                const toggle = () => {
+                    if (window.scrollY > window.innerHeight) {
+                        btn.classList.remove(
+                            "opacity-0",
+                            "translate-y-10",
+                            "invisible",
+                        );
+                        btn.classList.add(
+                            "opacity-100",
+                            "translate-y-0",
+                            "visible",
+                        );
+                    } else {
+                        btn.classList.add(
+                            "opacity-0",
+                            "translate-y-10",
+                            "invisible",
+                        );
+                        btn.classList.remove(
+                            "opacity-100",
+                            "translate-y-0",
+                            "visible",
+                        );
+                    }
+                };
+
+                window.addEventListener("scroll", toggle, { passive: true });
+                btn.addEventListener("click", () => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+                toggle();
+            }
+
+            // ── Custom Cursor ───────────────────────────
+            function initCustomCursor() {
+                if (window.innerWidth < 768) return;
+                if (
+                    window.matchMedia("(prefers-reduced-motion: reduce)")
+                        .matches
+                )
+                    return;
+
+                const dot = document.getElementById("cursor-dot");
+                const ring = document.getElementById("cursor-ring");
+                if (!dot || !ring) return;
+
+                document.body.classList.add("cursor-active");
+
+                let mouseX = 0,
+                    mouseY = 0;
+
+                document.addEventListener("mousemove", (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                    dot.style.left = mouseX + "px";
+                    dot.style.top = mouseY + "px";
+                    ring!.style.left = mouseX + "px";
+                    ring!.style.top = mouseY + "px";
+                    dot.style.opacity = "1";
+                    ring!.style.opacity = "1";
+                });
+
+                document.addEventListener("mouseleave", () => {
+                    dot.style.opacity = "0";
+                    ring!.style.opacity = "0";
+                });
+
+                // Scale up on hover over interactive elements
+                document.addEventListener("mouseover", (e: MouseEvent) => {
+                    const target = e.target as HTMLElement;
+                    if (
+                        target.closest(
+                            'a, button, [role="button"], input, select, textarea, .service-card, .tilt-card, .faq-item',
+                        )
+                    ) {
+                        ring!.style.width = "50px";
+                        ring!.style.height = "50px";
+                        ring!.style.borderColor = "rgba(197, 160, 101, 0.6)";
+                        dot!.style.transform =
+                            "translate(-50%, -50%) scale(1.5)";
+                    }
+                });
+                document.addEventListener("mouseout", (e: MouseEvent) => {
+                    const target = e.target as HTMLElement;
+                    if (
+                        target.closest(
+                            'a, button, [role="button"], input, select, textarea, .service-card, .tilt-card, .faq-item',
+                        )
+                    ) {
+                        ring!.style.width = "40px";
+                        ring!.style.height = "40px";
+                        ring!.style.borderColor = "rgba(197, 160, 101, 0.4)";
+                        dot!.style.transform = "translate(-50%, -50%) scale(1)";
+                    }
+                });
+            }
+
+            // ── Initialize ──────────────────────────────
+            function initAll() {
+                initScrollAnimations();
+                updateScrollProgress();
+                handleBackToTop();
+                initCustomCursor();
+                window.addEventListener("scroll", updateScrollProgress, {
+                    passive: true,
+                });
+            }
+
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", () => {
+                    hideLoader();
+                    initAll();
+                });
+            } else {
+                hideLoader();
+                initAll();
+            }
+
+            document.addEventListener("astro:after-swap", () => {
+                hideLoader();
+                initAll();
+            });
+        </script>
+    </body>
 </html>
