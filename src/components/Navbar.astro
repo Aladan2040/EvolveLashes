@@ -1,5 +1,5 @@
 ---
-// Navbar.astro - Premium animated navigation
+// Navbar.astro - Premium animated navigation with fixed mobile menu
 import logoImg from "../assets/logo-evolve.svg";
 
 const currentPath = Astro.url.pathname;
@@ -8,7 +8,7 @@ const isHome = currentPath === "/" || currentPath === "";
 
 <nav
     id="navbar"
-    class={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isHome ? "bg-transparent py-4 md:py-6" : "bg-white/90 backdrop-blur-xl shadow-lg shadow-black/5 py-2"}`}
+    class={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ${isHome ? "bg-transparent py-4 md:py-6" : "bg-white/90 backdrop-blur-xl shadow-lg shadow-black/5 py-2"}`}
     data-is-home={isHome}
     style="animation: navSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;"
 >
@@ -17,7 +17,7 @@ const isHome = currentPath === "/" || currentPath === "";
             <!-- LOGO -->
             <a
                 href="/"
-                class="flex-shrink-0 cursor-pointer flex items-center group"
+                class="flex-shrink-0 cursor-pointer flex items-center group relative z-[60]"
             >
                 <img
                     id="logo-img"
@@ -62,7 +62,7 @@ const isHome = currentPath === "/" || currentPath === "";
             <div class="md:hidden flex items-center">
                 <button
                     id="mobile-menu-btn"
-                    class={`relative w-10 h-10 flex items-center justify-center cursor-pointer focus:outline-none ${isHome ? "text-white" : "text-evolve-dark"}`}
+                    class={`relative z-[60] w-10 h-10 flex items-center justify-center cursor-pointer focus:outline-none transition-colors duration-300 ${isHome ? "text-white" : "text-evolve-dark"}`}
                     aria-label="Menú"
                 >
                     <span class="hamburger-line hamburger-top"></span>
@@ -72,70 +72,89 @@ const isHome = currentPath === "/" || currentPath === "";
             </div>
         </div>
     </div>
-
-    <!-- MENÚ MÓVIL FULLSCREEN OVERLAY -->
-    <div
-        id="mobile-menu"
-        class="md:hidden fixed inset-0 z-[100] pointer-events-none"
-    >
-        <!-- Background overlay -->
-        <div
-            id="mobile-menu-bg"
-            class="absolute inset-0 bg-evolve-dark/95 backdrop-blur-xl opacity-0 transition-opacity duration-500"
-        >
-        </div>
-
-        <!-- Content -->
-        <div
-            id="mobile-menu-content"
-            class="relative z-10 flex flex-col items-center justify-center h-full px-8"
-        >
-            <nav class="flex flex-col items-center gap-8">
-                <a
-                    href="/"
-                    class="mobile-nav-link text-2xl font-semibold text-white hover:text-evolve-accent transition-all duration-300 opacity-0 translate-y-6"
-                    style="transition-delay: 0.1s;"
-                >
-                    Inicio
-                </a>
-                <a
-                    href="/services"
-                    class="mobile-nav-link text-2xl font-semibold text-white hover:text-evolve-accent transition-all duration-300 opacity-0 translate-y-6"
-                    style="transition-delay: 0.2s;"
-                >
-                    Servicios
-                </a>
-                <div
-                    class="w-16 h-px bg-white/20 my-2 mobile-nav-link opacity-0 translate-y-6"
-                    style="transition-delay: 0.3s;"
-                >
-                </div>
-                <button
-                    onclick="window.open('https://wa.me/56975598631?text=Hola%20EvolveLashes,%20quiero%20una%20cita.', '_blank')"
-                    class="mobile-nav-link bg-evolve-accent text-white px-10 py-4 rounded-full font-bold shadow-lg text-lg cursor-pointer hover:bg-white hover:text-evolve-dark transition-all duration-300 flex items-center gap-3 opacity-0 translate-y-6"
-                    style="transition-delay: 0.35s;"
-                >
-                    <svg
-                        class="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
-                        ></path>
-                    </svg>
-                    Agendar por WhatsApp
-                </button>
-            </nav>
-        </div>
-    </div>
 </nav>
+
+<!-- MENÚ MÓVIL FULLSCREEN OVERLAY (Fixed & High Z-Index) -->
+<div
+    id="mobile-menu-overlay"
+    class="fixed inset-0 z-50 bg-[#111111] pointer-events-none opacity-0 transition-opacity duration-500 flex flex-col items-center justify-center overflow-hidden"
+>
+    <!-- Background Decor -->
+    <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-evolve-accent/10 to-transparent opacity-30"
+    >
+    </div>
+    <div
+        class="absolute top-0 right-0 w-64 h-64 bg-evolve-accent/5 rounded-full blur-[80px]"
+    >
+    </div>
+    <div
+        class="absolute bottom-0 left-0 w-80 h-80 bg-evolve-nude/5 rounded-full blur-[100px]"
+    >
+    </div>
+
+    <!-- Close Button (Explicit) -->
+    <button
+        id="close-menu-btn"
+        class="absolute top-6 right-6 text-white/50 hover:text-white transition-colors duration-300 z-50 p-2"
+        aria-label="Cerrar menú"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+    </button>
+
+    <nav
+        class="relative z-10 flex flex-col items-center gap-6 text-center w-full px-6"
+    >
+        <a
+            href="/"
+            class="mobile-link text-3xl md:text-4xl font-serif-display font-medium text-white hover:text-evolve-accent transition-all duration-300 transform translate-y-8 opacity-0"
+        >
+            Inicio
+        </a>
+        <a
+            href="/services"
+            class="mobile-link text-3xl md:text-4xl font-serif-display font-medium text-white hover:text-evolve-accent transition-all duration-300 transform translate-y-8 opacity-0"
+        >
+            Servicios
+        </a>
+
+        <div
+            class="w-12 h-px bg-white/10 my-4 mobile-link transform translate-y-8 opacity-0"
+        >
+        </div>
+
+        <button
+            onclick="window.open('https://wa.me/56975598631?text=Hola%20EvolveLashes,%20quiero%20una%20cita.', '_blank')"
+            class="mobile-link group relative overflow-hidden bg-evolve-accent text-white px-8 py-3.5 rounded-full font-bold shadow-[0_4px_20px_rgba(197,160,101,0.4)] hover:shadow-[0_4px_30px_rgba(197,160,101,0.6)] transform translate-y-8 opacity-0 transition-all duration-300 active:scale-95"
+        >
+            <span class="relative z-10 flex items-center gap-2 text-lg">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                    ></path>
+                </svg>
+                Agendar ahora
+            </span>
+        </button>
+    </nav>
+</div>
 
 <!-- Spacer for fixed navbar on non-home pages -->
 {!isHome && <div class="h-20 md:h-24" />}
 
 <style>
-    /* Nav slide-down entrance */
     @keyframes navSlideDown {
         from {
             opacity: 0;
@@ -147,50 +166,63 @@ const isHome = currentPath === "/" || currentPath === "";
         }
     }
 
-    /* Hamburger animated lines */
     .hamburger-line {
         position: absolute;
-        width: 22px;
+        width: 24px;
         height: 2px;
         background: currentColor;
         border-radius: 2px;
         transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .hamburger-top {
-        transform: translateY(-7px);
+        top: 12px;
     }
     .hamburger-middle {
-        transform: translateY(0);
+        top: 19px;
     }
     .hamburger-bottom {
-        transform: translateY(7px);
+        top: 26px;
     }
 
-    /* Active state → X */
+    /* Active state -> X */
     .menu-open .hamburger-top {
-        transform: rotate(45deg) translateY(0);
+        top: 19px;
+        transform: translateX(-50%) rotate(45deg);
     }
     .menu-open .hamburger-middle {
         opacity: 0;
-        transform: scaleX(0);
+        transform: translateX(-50%) scaleX(0);
     }
     .menu-open .hamburger-bottom {
-        transform: rotate(-45deg) translateY(0);
+        top: 19px;
+        transform: translateX(-50%) rotate(-45deg);
     }
 
-    /* Mobile menu open state */
-    .mobile-menu-active {
+    .menu-active {
         pointer-events: auto !important;
-    }
-
-    .mobile-menu-active #mobile-menu-bg {
         opacity: 1 !important;
     }
 
-    .mobile-menu-active .mobile-nav-link {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
+    /* Stagger animation for links */
+    .menu-active .mobile-link {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .mobile-link:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+    .mobile-link:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+    .mobile-link:nth-child(3) {
+        transition-delay: 0.25s;
+    }
+    .mobile-link:nth-child(4) {
+        transition-delay: 0.3s;
     }
 </style>
 
@@ -199,109 +231,143 @@ const isHome = currentPath === "/" || currentPath === "";
         const navbar = document.getElementById("navbar");
         const logoImg = document.getElementById("logo-img");
         const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-        const mobileMenu = document.getElementById("mobile-menu");
+        const closeMenuBtn = document.getElementById("close-menu-btn");
+        const mobileMenuOverlay = document.getElementById(
+            "mobile-menu-overlay",
+        );
+        const navLinks = document.querySelectorAll(".mobile-link"); // Use class selector
+
+        // Desktop links styling references
         const navLinkInicio = document.getElementById("nav-link-inicio");
         const navLinkServicios = document.getElementById("nav-link-servicios");
 
         const isHome = navbar?.dataset.isHome === "true";
         let isMenuOpen = false;
 
-        // Toggle menú móvil fullscreen
-        mobileMenuBtn?.addEventListener("click", () => {
+        function toggleMenu() {
             isMenuOpen = !isMenuOpen;
 
             if (isMenuOpen) {
-                mobileMenu?.classList.add("mobile-menu-active");
+                // Open Menu
+                mobileMenuOverlay?.classList.add("menu-active");
                 mobileMenuBtn?.classList.add("menu-open");
-                mobileMenuBtn?.classList.remove("text-white");
+                mobileMenuBtn?.classList.add(
+                    "opacity-0",
+                    "pointer-events-none",
+                ); // Hide hamburger
+                document.body.style.overflow = "hidden"; // Lock scroll
+
+                // Force white button color for visibility against dark menu
+                mobileMenuBtn?.classList.remove("text-evolve-dark");
                 mobileMenuBtn?.classList.add("text-white");
-                document.body.style.overflow = "hidden";
             } else {
-                mobileMenu?.classList.remove("mobile-menu-active");
+                // Close Menu
+                mobileMenuOverlay?.classList.remove("menu-active");
                 mobileMenuBtn?.classList.remove("menu-open");
-                document.body.style.overflow = "";
+                mobileMenuBtn?.classList.remove(
+                    "opacity-0",
+                    "pointer-events-none",
+                ); // Show hamburger
+                document.body.style.overflow = ""; // Unlock scroll
+
+                // Reset button color based on current scroll/page state
+                updateNavbarState();
             }
+        }
+
+        // Toggle Click
+        mobileMenuBtn?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggleMenu();
         });
 
-        // Cerrar menú al hacer click en un enlace
-        mobileMenu?.querySelectorAll("a, button").forEach((link) => {
+        // Close Button Click
+        closeMenuBtn?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Close on Link Click
+        navLinks.forEach((link) => {
             link.addEventListener("click", () => {
-                isMenuOpen = false;
-                mobileMenu?.classList.remove("mobile-menu-active");
-                mobileMenuBtn?.classList.remove("menu-open");
-                document.body.style.overflow = "";
+                if (isMenuOpen) toggleMenu();
             });
         });
 
-        // Manejar scroll
-        if (isHome) {
-            let lastScroll = 0;
-            const handleScroll = () => {
-                const scrolled = window.scrollY > 50;
+        // Resize Reset
+        window.addEventListener("resize", () => {
+            if (window.innerWidth >= 768 && isMenuOpen) {
+                toggleMenu();
+            }
+        });
 
-                if (scrolled) {
-                    navbar?.classList.remove(
-                        "bg-transparent",
-                        "py-4",
-                        "md:py-6",
-                    );
-                    navbar?.classList.add(
-                        "bg-white/90",
-                        "backdrop-blur-xl",
-                        "shadow-lg",
-                        "shadow-black/5",
-                        "py-2",
-                    );
+        // Scroll Handler (Navbar style logic)
+        function updateNavbarState() {
+            const scrolled = window.scrollY > 50;
 
-                    logoImg?.classList.remove(
-                        "w-32",
-                        "md:w-48",
-                        "filter",
-                        "brightness-0",
-                        "invert",
-                    );
+            // If menu is open, button MUST be white.
+            // If closed, follow normal rules.
+            if (isMenuOpen) {
+                mobileMenuBtn?.classList.remove("text-evolve-dark");
+                mobileMenuBtn?.classList.add("text-white");
+                return;
+            }
+
+            if (scrolled || !isHome) {
+                // Scrolled or Inner Page -> White bg, Dark text
+                navbar?.classList.remove("bg-transparent", "py-4", "md:py-6");
+                navbar?.classList.add(
+                    "bg-white/90",
+                    "backdrop-blur-xl",
+                    "shadow-lg",
+                    "py-2",
+                );
+
+                logoImg?.classList.remove("filter", "brightness-0", "invert");
+                if (isHome) {
+                    logoImg?.classList.remove("w-32", "md:w-48");
                     logoImg?.classList.add("w-28", "md:w-40");
-
-                    navLinkInicio?.classList.remove("text-white");
-                    navLinkInicio?.classList.add("text-gray-600");
-                    navLinkServicios?.classList.remove("text-white");
-                    navLinkServicios?.classList.add("text-gray-600");
-
-                    mobileMenuBtn?.classList.remove("text-white");
-                    mobileMenuBtn?.classList.add("text-evolve-dark");
-                } else {
-                    navbar?.classList.add("bg-transparent", "py-4", "md:py-6");
-                    navbar?.classList.remove(
-                        "bg-white/90",
-                        "backdrop-blur-xl",
-                        "shadow-lg",
-                        "shadow-black/5",
-                        "py-2",
-                    );
-
-                    logoImg?.classList.add(
-                        "w-32",
-                        "md:w-48",
-                        "filter",
-                        "brightness-0",
-                        "invert",
-                    );
-                    logoImg?.classList.remove("w-28", "md:w-40");
-
-                    navLinkInicio?.classList.add("text-white");
-                    navLinkInicio?.classList.remove("text-gray-600");
-                    navLinkServicios?.classList.add("text-white");
-                    navLinkServicios?.classList.remove("text-gray-600");
-
-                    mobileMenuBtn?.classList.add("text-white");
-                    mobileMenuBtn?.classList.remove("text-evolve-dark");
                 }
 
-                lastScroll = window.scrollY;
-            };
+                // Desktop links
+                navLinkInicio?.classList.remove("text-white");
+                navLinkInicio?.classList.add("text-gray-600");
+                navLinkServicios?.classList.remove("text-white");
+                navLinkServicios?.classList.add("text-gray-600");
 
-            window.addEventListener("scroll", handleScroll, { passive: true });
-            handleScroll();
+                // Mobile Btn
+                mobileMenuBtn?.classList.remove("text-white");
+                mobileMenuBtn?.classList.add("text-evolve-dark");
+            } else {
+                // Top of Home -> Transparent, White text
+                navbar?.classList.add("bg-transparent", "py-4", "md:py-6");
+                navbar?.classList.remove(
+                    "bg-white/90",
+                    "backdrop-blur-xl",
+                    "shadow-lg",
+                    "py-2",
+                );
+
+                logoImg?.classList.add("filter", "brightness-0", "invert");
+                if (isHome) {
+                    logoImg?.classList.add("w-32", "md:w-48");
+                    logoImg?.classList.remove("w-28", "md:w-40");
+                }
+
+                // Desktop links
+                navLinkInicio?.classList.add("text-white");
+                navLinkInicio?.classList.remove("text-gray-600");
+                navLinkServicios?.classList.add("text-white");
+                navLinkServicios?.classList.remove("text-gray-600");
+
+                // Mobile Btn
+                mobileMenuBtn?.classList.add("text-white");
+                mobileMenuBtn?.classList.remove("text-evolve-dark");
+            }
         }
+
+        window.addEventListener("scroll", updateNavbarState, { passive: true });
+        // Initial check
+        updateNavbarState();
     });
 </script>
