@@ -227,7 +227,8 @@ const isHome = currentPath === "/" || currentPath === "";
 </style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
+    // Función de inicialización que se ejecuta en cada navegación
+    function initNavbar() {
         const navbar = document.getElementById("navbar");
         const logoImg = document.getElementById("logo-img");
         const mobileMenuBtn = document.getElementById("mobile-menu-btn");
@@ -235,9 +236,9 @@ const isHome = currentPath === "/" || currentPath === "";
         const mobileMenuOverlay = document.getElementById(
             "mobile-menu-overlay",
         );
-        const navLinks = document.querySelectorAll(".mobile-link"); // Use class selector
+        const navLinks = document.querySelectorAll(".mobile-link");
 
-        // Desktop links styling references
+        // References for desktop link styling
         const navLinkInicio = document.getElementById("nav-link-inicio");
         const navLinkServicios = document.getElementById("nav-link-servicios");
 
@@ -248,73 +249,67 @@ const isHome = currentPath === "/" || currentPath === "";
             isMenuOpen = !isMenuOpen;
 
             if (isMenuOpen) {
-                // Open Menu
+                // Open
                 mobileMenuOverlay?.classList.add("menu-active");
-                mobileMenuBtn?.classList.add("menu-open");
                 mobileMenuBtn?.classList.add(
+                    "menu-open",
                     "opacity-0",
                     "pointer-events-none",
-                ); // Hide hamburger
-                document.body.style.overflow = "hidden"; // Lock scroll
+                );
+                document.body.style.overflow = "hidden";
 
-                // Force white button color for visibility against dark menu
+                // Force button white (although hidden, good for state)
                 mobileMenuBtn?.classList.remove("text-evolve-dark");
                 mobileMenuBtn?.classList.add("text-white");
             } else {
-                // Close Menu
+                // Close
                 mobileMenuOverlay?.classList.remove("menu-active");
-                mobileMenuBtn?.classList.remove("menu-open");
                 mobileMenuBtn?.classList.remove(
+                    "menu-open",
                     "opacity-0",
                     "pointer-events-none",
-                ); // Show hamburger
-                document.body.style.overflow = ""; // Unlock scroll
+                );
+                document.body.style.overflow = "";
 
-                // Reset button color based on current scroll/page state
                 updateNavbarState();
             }
         }
 
-        // Toggle Click
+        // Cleanup old listeners to prevent duplicates (though Astro swaps body, safer to be sure)
+        // Note: In simple scripts, re-querying elements usually suffices as new elements have no listeners.
+
+        // Listeners
         mobileMenuBtn?.addEventListener("click", (e) => {
             e.stopPropagation();
             toggleMenu();
         });
 
-        // Close Button Click
         closeMenuBtn?.addEventListener("click", (e) => {
             e.stopPropagation();
             toggleMenu();
         });
 
-        // Close on Link Click
         navLinks.forEach((link) => {
             link.addEventListener("click", () => {
                 if (isMenuOpen) toggleMenu();
             });
         });
 
-        // Resize Reset
-        window.addEventListener("resize", () => {
+        const handleResize = () => {
             if (window.innerWidth >= 768 && isMenuOpen) {
                 toggleMenu();
             }
-        });
+        };
+        window.addEventListener("resize", handleResize);
 
-        // Scroll Handler (Navbar style logic)
         function updateNavbarState() {
+            // Si el menú está abierto, no cambiamos nada visual del navbar fondo,
+            // pero el botón hamburguesa ya está oculto.
+            if (isMenuOpen) return;
+
             const scrolled = window.scrollY > 50;
 
-            // If menu is open, button MUST be white.
-            // If closed, follow normal rules.
-            if (isMenuOpen) {
-                mobileMenuBtn?.classList.remove("text-evolve-dark");
-                mobileMenuBtn?.classList.add("text-white");
-                return;
-            }
-
             if (scrolled || !isHome) {
-                // Scrolled or Inner Page -> White bg, Dark text
                 navbar?.classList.remove("bg-transparent", "py-4", "md:py-6");
                 navbar?.classList.add(
                     "bg-white/90",
@@ -329,17 +324,14 @@ const isHome = currentPath === "/" || currentPath === "";
                     logoImg?.classList.add("w-28", "md:w-40");
                 }
 
-                // Desktop links
                 navLinkInicio?.classList.remove("text-white");
                 navLinkInicio?.classList.add("text-gray-600");
                 navLinkServicios?.classList.remove("text-white");
                 navLinkServicios?.classList.add("text-gray-600");
 
-                // Mobile Btn
                 mobileMenuBtn?.classList.remove("text-white");
                 mobileMenuBtn?.classList.add("text-evolve-dark");
             } else {
-                // Top of Home -> Transparent, White text
                 navbar?.classList.add("bg-transparent", "py-4", "md:py-6");
                 navbar?.classList.remove(
                     "bg-white/90",
@@ -354,20 +346,20 @@ const isHome = currentPath === "/" || currentPath === "";
                     logoImg?.classList.remove("w-28", "md:w-40");
                 }
 
-                // Desktop links
                 navLinkInicio?.classList.add("text-white");
                 navLinkInicio?.classList.remove("text-gray-600");
                 navLinkServicios?.classList.add("text-white");
                 navLinkServicios?.classList.remove("text-gray-600");
 
-                // Mobile Btn
                 mobileMenuBtn?.classList.add("text-white");
                 mobileMenuBtn?.classList.remove("text-evolve-dark");
             }
         }
 
         window.addEventListener("scroll", updateNavbarState, { passive: true });
-        // Initial check
         updateNavbarState();
-    });
+    }
+
+    // Ejecutar en carga inicial y en cada navegación de Astro
+    document.addEventListener("astro:page-load", initNavbar);
 </script>
